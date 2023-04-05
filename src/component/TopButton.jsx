@@ -1,6 +1,6 @@
 import React from "react";
 
-function TopButton() {
+const TopButton = () => {
   const cities = [
     {
       id: 1,
@@ -30,6 +30,6 @@ function TopButton() {
       <button className="text-white text-lg font-medium">{city.title}</button>;
     })}
   </div>;
-}
+};
 
 export default TopButton;
