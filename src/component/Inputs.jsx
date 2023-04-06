@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
 
-const Inputs = ({ setQuery, units, setUnits })=>{
+const Inputs = ({ setQuery, units, setUnits }) => {
   const [city, setCity] = useState("");
 
   const handleSearchClick = () => {
     if (city !== "") setQuery({ q: city });
   };
 
-  const handleLocationClick = () =>{
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition((position)=>{
-        let lat = position.coords.latitude
-        let lon = position.coords.longitude
+  const handleLocationClick = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
 
         setQuery({
           lat,
-          lon
-        })
-      })
+          lon,
+        });
+      });
     }
-  }
+  };
 
-  const handleUnitsChange= (e) =>{
-    const selectedUnit = e.currentTarget.name
-    if (units !== selectedUnit) setUnits(selectedUnit)
-  }
+  const handleUnitsChange = (e) => {
+    const selectedUnit = e.currentTarget.name;
+    if (units !== selectedUnit) setUnits(selectedUnit);
+  };
 
   return (
     <div className="flex flex-row justify-center my-6">

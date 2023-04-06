@@ -2,7 +2,6 @@ import React from "react";
 import { iconUrlFromCode } from "../services/weatherService";
 
 const Forecast = ({ title, items }) => {
-  console.log(items);
   return (
     <div>
       <div className="flex items-center justify-start mt-6">
@@ -28,6 +27,6 @@ const Forecast = ({ title, items }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Forecast;

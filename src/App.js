@@ -1,5 +1,4 @@
 import "./App.css";
-import UilReact from "@iconscout/react-unicons/icons/uil-react";
 import TopButton from "./component/TopButton";
 import Inputs from "./component/Inputs";
 import TimeAndLocation from "./component/TimeAndLocation";
@@ -22,25 +21,27 @@ function App() {
     fetchWeather();
   }, [query, units]);
 
-  const formatBackground = () =>{
-    if(!weather) return "from-cyan-700 to-blue-700"
-    const threshold = units ==="metric" ? 27 :80
-    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700"
+  const formatBackground = () => {
+    if (!weather) return "from-cyan-700 to-blue-700";
+    const threshold = units === "metric" ? 27 : 80;
+    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
 
-    return "from-yellow-700 to-orange-700"
-  }
+    return "from-yellow-700 to-orange-700";
+  };
 
   return (
-    <div className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}>
-      <TopButton setQuery={setQuery}/>
+    <div
+      className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+    >
+      <TopButton setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
         <div>
-          <TimeAndLocation weather = {weather}/>
-          <TemperatureAndDetails weather = {weather}/>
-          <Forecast title="hourly forecast" items={weather.hourly}/>
-          <Forecast title=" daily forecast" items={weather.daily}/>
+          <TimeAndLocation weather={weather} />
+          <TemperatureAndDetails weather={weather} />
+          <Forecast title="hourly forecast" items={weather.hourly} />
+          <Forecast title=" daily forecast" items={weather.daily} />
         </div>
       )}
     </div>
